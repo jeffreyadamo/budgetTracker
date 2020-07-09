@@ -8,7 +8,6 @@ const FILES_TO_CACHE = [
     "/icons/icon-512x512.png"
   ];
   
-  
   const PRECACHE = "precache-v1";
   const RUNTIME = "runtime";
   
@@ -20,7 +19,6 @@ const FILES_TO_CACHE = [
     );
   });
   
-  // The activate handler takes care of cleaning up old caches.
   self.addEventListener("activate", event => {
     const currentCaches = [PRECACHE, RUNTIME];
     event.waitUntil(
@@ -34,22 +32,35 @@ const FILES_TO_CACHE = [
     );
   });
   
-  self.addEventListener("fetch", event => {
-    if (event.request.url.startsWith(self.location.origin)) {
+  self.addEventListener("fetch", function(event) {
+    if (event.request.url.includes("/api/")) {
       event.respondWith(
-        caches.match(event.request).then(cachedResponse => {
-          if (cachedResponse) {
-            return cachedResponse;
-          }
-  
-          return caches.open(RUNTIME).then(cache => {
-            return fetch(event.request).then(response => {
-              return cache.put(event.request, response.clone()).then(() => {
-                return response;
-              });
+        caches.open(RUNTIME).then(cache => {
+          return fetch(event.request)
+            .then(response => {
+              if (response.status === 200) {
+                cache.put(event.request.url, response.clone());
+              } return response;
+            })
+            .catch(err => {
+              return cache.match(event.request);
             });
-          });
-        })
+        }).catch(err => console.log(err))
       );
+      return;
     }
+  
+    event.respondWith(
+      fetch(event.request)
+      .catch(function() {
+        return caches.match(event.request)
+        .then(function(response) {
+          if (response) {
+            return response;
+          } else if (event.request.headers.get("accept").includes("text/html")) {
+            return caches.match("/");
+          }
+        });
+      })
+    );
   });
