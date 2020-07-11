@@ -63,14 +63,14 @@ In order to make this app run offline, the following files where created:
 * /public/manifest.webmanifest  
 
 ### Service worker
-After the page is initially loaded, a [service worker](https://developers.google.com/web/fundamentals/primers/service-workers) is registered and installs a cache using *Cache API* on the browser. This can store files like index.html and style.css in order to render the app faster upon reload and for when using offline. 
+After the page is initially loaded, a [service worker](https://developers.google.com/web/fundamentals/primers/service-workers) is registered and installs a cache using *Cache API* on the browser. This can store files like index.html and style.css in order to render the app faster upon reload and for use offline. 
 
  
 ### IndexedDB
 When the user is offline, an event handler recognizes the event change and utilizes the [IndexedDb](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB) feature of the browser to store inputs while offline. The supporting code is located in */public/db.js*. IndexedDb includes a "budget" database with an *object store* of "pending" and key value for the input received. This data will be pushed to the MongoDb upon reestablishing the internet connection using a POST request to "api/transaction/bulk". 
 
 ### Manifest
-This app enables Budge Tracket to a full [Progressive Web Application](https://web.dev/progressive-web-apps/) with the use of [Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest) that allows the website to be installed on the device's homescreen for offline use. Manifest is linked in the head of the HTML and details are stored in an object at */public/manifest.webmanifest*
+This app enables **Budget Tracker** to be a full [Progressive Web Application](https://web.dev/progressive-web-apps/) with the use of [Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest) that allows the website to be installed on the device's homescreen for offline use. Manifest is linked in the head of the HTML and details are stored in an object at */public/manifest.webmanifest*
 
 ## License
 
