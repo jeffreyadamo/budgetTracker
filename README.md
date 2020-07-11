@@ -12,9 +12,9 @@ Adapt a boilerplate Budget Tracker application to function offline as a Progress
 
 
 <p style="text-align: center; font-size: 18px">
-    <a target="_blank" href="https://www.youtube.com/watch?v=qxzEDtLlCgE&feature=youtu.be"> Visit Budget Tracker demo on YouTube</p>
+    <a href="https://www.youtube.com/watch?v=qxzEDtLlCgE&feature=youtu.be"> Visit Budget Tracker demo on YouTube</p>
 
-<a target="_blank" style="display: block;
+<a style="display: block;
   margin-left: auto;
   margin-right: auto;
   width: 60%" href="https://www.youtube.com/watch?v=qxzEDtLlCgE&feature=youtu.be">![View on Youtube](public/icons/budgetTrackerDemo.gif)</a>
