@@ -8,7 +8,18 @@ UW Full Stack BootCamp
 
 ## Description
 
-Adapt a boilerplate Budget Tracker application to function offline as a Progressive Web Application (PWA). THe user can keep track of a budget by depositing or withdrawing expenses with or without a connection. The app utilizes IndexedDB to store offline content and a Service Worker to update the MongoDB NoSQL database. The app also features Manifest...
+Adapt a boilerplate Budget Tracker application to function offline as a Progressive Web Application (PWA). THe user can keep track of a budget by depositing or withdrawing expenses with or without a connection. The app utilizes IndexedDB to store offline content and a Service Worker to update the MongoDB NoSQL database. The app also features Manifest...  
+
+
+<p style="text-align: center; font-size: 18px">
+    <a target="_blank" href="https://www.youtube.com/watch?v=qxzEDtLlCgE&feature=youtu.be"> Visit Budget Tracker demo on YouTube</p>
+
+<a target="_blank" style="display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%" href="https://www.youtube.com/watch?v=qxzEDtLlCgE&feature=youtu.be">![View on Youtube](public/icons/budgetTrackerDemo.gif)</a>
+
+
 
 ## Table of Contents
 
